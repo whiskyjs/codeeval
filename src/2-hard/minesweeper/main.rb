@@ -4,7 +4,7 @@ contents = File.read ARGV.first
 
 [TrueClass, FalseClass].each do |klass|
   klass.class_eval do
-    def to_b
+    def to_i
       self ? 1 : 0
     end
   end
@@ -34,7 +34,7 @@ contents.split($/).each do |line|
           cell = normalize.(i + n, j + m)
 
           if cell and not [n, m] == [0, 0]
-            acc_m + cell[:has_mine?].to_b
+            acc_m + cell[:has_mine?].to_i
           else
             acc_m
           end
